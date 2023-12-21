@@ -1,24 +1,18 @@
 import { useState } from 'react'
-import Content from './Content';
+import Content from './Content'
 
 const Modal = () => {
+  const [show, setShow] = useState(false)
 
-
-    const [show,setShow]=useState(false);
-    
-   function toggle(data)
-   {
-    setShow(data);
-   }
-    
+  function toggle(data) {
+    setShow(data)
+  }
 
   return (
-    <div >
-         <button onClick={()=>setShow(!show)}>Toggle</button>
+    <div>
+      <button onClick={() => setShow(!show)}>Toggle</button>
 
-         {
-            show? <Content toggle={toggle} show={show}/>:''
-         }
+      {show ? <Content toggle={toggle} show={show} /> : ''}
     </div>
   )
 }
