@@ -4,10 +4,15 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Cards from './Cards'
 
-// import ShoppingCart from './ShoppingCart'
+import Cart from './Cart'
 
 const Products = () => {
   const [products, setProducts] = useState([])
+  
+  const [cart, setCart] = useState([]);
+  
+  
+
   useEffect(() => {
     axios
       .get('https://fakestoreapi.com/products')
@@ -15,10 +20,14 @@ const Products = () => {
       .catch((error) => console.log(error))
   }, [])
 
-  //console.log(products)
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
 
+  //console.log(products)
   return (
     <Container style={{ width: 'auto' }}>
+    <h1 style={{textAlign:"center"}}>Shopping Product</h1>
       <Row>
         {
           products.map((p) => (
@@ -28,17 +37,16 @@ const Products = () => {
               price={p.price}
               image={p.image}
               description={p.description}
+              addToCart={() => addToCart(p)}
             />
           </Col>
           )
           )
         }
       </Row>
-      {/* <hr /> */}
-      {/* <ShoppingCart/> */}
+      <hr />
+      <Cart cart={cart} />
     </Container>
-
-    
   )
 }
 

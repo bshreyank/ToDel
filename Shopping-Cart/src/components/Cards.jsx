@@ -3,7 +3,7 @@ import React from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 
 // eslint-disable-next-line react/prop-types
-const Cards = ({ title, price, image, description }) => {
+const Cards = ({ title, price, image, description, addToCart  }) => {
   return (
     <Row>
       <Col xs={6}>
@@ -13,9 +13,11 @@ const Cards = ({ title, price, image, description }) => {
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
             <Card.Text>
-              <h1> {price}</h1>
+              <h1>$ {price}</h1>
             </Card.Text>
-            <Button variant="primary">addToCart</Button>
+            <Button variant="primary" onClick={addToCart}>
+              Add to Cart
+            </Button>
           </Card.Body>
         </Card>
       </Col>
