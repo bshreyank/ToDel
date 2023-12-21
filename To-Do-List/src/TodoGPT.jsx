@@ -33,17 +33,17 @@ function TodoGPT() {
   let initialValue = [
     {
       id: 1,
-      task: 'task1',
+      text: 'task1',
       check: false,
     },
     {
       id: 2,
-      task: 'task2',
+      text: 'task2',
       check: false,
     },
     {
       id: 3,
-      task: 'task3',
+      text: 'task3',
       check: false,
     },
   ]
